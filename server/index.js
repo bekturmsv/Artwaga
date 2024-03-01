@@ -20,4 +20,4 @@ app.listen(3000, () => {
   console.log("Server started successfully on port 3000!");
 });
 
-app.use("/api/user", userRouter);
+app.use("/api/users", userRouter);
