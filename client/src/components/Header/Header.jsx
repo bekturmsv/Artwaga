@@ -33,6 +33,8 @@ const Header = () => {
             content={"Создать пользователя"}
             method={() => setIsModalOpen(true)}
           />
+
+          <Button content={"Обновить"} method={() => dispatch(fetchUsers())} />
         </div>
       </header>
 

@@ -12,3 +12,7 @@ header {
   font-size: 2em;
   font-weight: 700;
 }
+
+.header__btn > button {
+  margin: 0 0 0 15px;
+}
