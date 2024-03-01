@@ -1,10 +1,13 @@
 import axiosBaseUrl from "../../axios";
-import { createSlice, createAsyncThunk } from "@reduxjs/toolkit";
+import { createSlice, createAsyncThunk, createAction } from "@reduxjs/toolkit";
 
-export const fetchUsers = createAsyncThunk("users/fetchUsers", async () => {
-  const { data } = await axiosBaseUrl.get("api/users/");
-  return data;
-});
+export const fetchUsers = createAsyncThunk(
+  "users/fetchUsers",
+  async (filters) => {
+    const { data } = await axiosBaseUrl.get("api/users/", { params: filters });
+    return data;
+  }
+);
 
 export const fetchRemoveUser = createAsyncThunk(
   "users/fetchRemoveUser",
