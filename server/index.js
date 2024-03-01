@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import dotenv from "dotenv";
 import cors from "cors";
+import userRouter from "./src/routes/user.route.js";
 
 dotenv.config();
 mongoose
@@ -18,3 +19,5 @@ app.use(cors());
 app.listen(3000, () => {
   console.log("Server started successfully on port 3000!");
 });
+
+app.use("/api/user", userRouter);
