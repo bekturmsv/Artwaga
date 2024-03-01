@@ -1,12 +1,18 @@
 import React from "react";
 import "./Modal.css";
-const Modal = ({ handleSaveClick, setIsModalOpen, userData, setUserData }) => {
+import { useDispatch } from "react-redux";
+const Modal = ({ method, userData, setUserData, content, closeModal }) => {
+  const handleButtonClick = () => {
+    method();
+    closeModal();
+  };
+
   return (
     <div className="modal">
       <article className="modal-container">
         <header className="modal-container-header">
-          <h1 className="modal-container-title">Update user</h1>
-          <button onClick={() => setIsModalOpen(false)} className="icon-button">
+          <h1 className="modal-container-title">{content} user</h1>
+          <button onClick={closeModal} className="icon-button">
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
@@ -55,8 +61,8 @@ const Modal = ({ handleSaveClick, setIsModalOpen, userData, setUserData }) => {
           />
         </section>
         <footer className="modal-container-footer">
-          <button onClick={handleSaveClick} className="button is-primary">
-            Update
+          <button onClick={handleButtonClick} className="button is-primary">
+            {content}
           </button>
         </footer>
       </article>

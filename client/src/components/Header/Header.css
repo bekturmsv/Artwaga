@@ -1,0 +1,14 @@
+header {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px;
+  background-color: rgb(184, 183, 183);
+  color: #fff;
+}
+
+.header__logo {
+  font-size: 2em;
+  font-weight: 700;
+}
