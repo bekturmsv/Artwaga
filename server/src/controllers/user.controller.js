@@ -64,3 +64,26 @@ export const updateUser = async (req, res) => {
     });
   }
 };
+
+export const deleteUser = async (req, res) => {
+  try {
+    const userId = req.params.id;
+
+    const doc = await User.findByIdAndDelete({ _id: userId });
+
+    if (!doc) {
+      res.status(404).json({
+        message: "Не удалось найти пользователя",
+      });
+    }
+
+    return res.status(200).json({
+      message: "Пользователь удален успешно!",
+    });
+  } catch (error) {
+    console.log(error);
+    res.status(500).json({
+      message: "Не удалось удалить пользователя",
+    });
+  }
+};
